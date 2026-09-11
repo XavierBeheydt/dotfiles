@@ -59,6 +59,9 @@ rule is about repo content, not conversation.
 ## Roadmap & skills
 
 Planned work is tracked on the GitHub
-[Project board](https://github.com/users/XavierBeheydt/projects/16) (backed
-by Issues), not a hand-maintained file. One-off or occasional procedures
-live in skills, not here, to keep this file short.
+[Project board](https://github.com/users/XavierBeheydt/projects/16), not a
+hand-maintained file. Every roadmap item must be backed by a real GitHub
+Issue — add one with `/roadmap <description>` (see
+`.claude/commands/roadmap.md`), never as a bare checklist line or note.
+One-off or occasional procedures live in skills, not here, to keep this
+file short.

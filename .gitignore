@@ -1,8 +1,13 @@
 # Fish Shell
 home/.config/fish/fish_variables
 
-# Claude
-.claude/
+# Claude (agent-local working dir: worktrees, notes, local settings) --
+# except the shared project tooling below, which stays tracked
+.claude/*
+!.claude/commands/
+!.claude/skills/
+!.claude/agents/
+!.claude/settings.json
 
 # User scratch notes / temporary files
 .tmp/
