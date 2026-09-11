@@ -1,0 +1,26 @@
+#!/bin/sh
+# Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
+#
+# The NVIDIA GPU's HDMI audio (HDA codec on its own PCI audio function)
+# does not come back after suspend: the codec stays powered down and
+# PipeWire/ALSA never see it wake up, so HDMI audio (e.g. to the Samsung
+# Q29 over HDMI) is silently dead until a reboot. Removing and rescanning
+# just that PCI function forces the kernel to re-probe/re-init the codec.
+#
+# systemd-sleep hooks live under /etc/systemd/system-sleep/ (or
+# /usr/lib/systemd/system-sleep/), run as root, and are called as
+# "<script> pre|post suspend|hibernate|hybrid-sleep|suspend-then-hibernate".
+#
+# Doc: https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#HDMI/DisplayPort_audio_stops_working_after_suspend
+
+NVIDIA_AUDIO_PCI="0000:0a:00.1"
+
+case "$1" in
+    post)
+        if [ -e "/sys/bus/pci/devices/$NVIDIA_AUDIO_PCI/remove" ]; then
+            echo 1 > "/sys/bus/pci/devices/$NVIDIA_AUDIO_PCI/remove"
+            sleep 1
+            echo 1 > /sys/bus/pci/rescan
+        fi
+        ;;
+esac
