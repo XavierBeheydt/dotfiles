@@ -1,0 +1,25 @@
+# Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
+#
+# PAM service file for greetd (the display/login manager this system
+# uses -- not /etc/pam.d/login, which is only for raw console getty).
+#
+# The two `pam_oo7.so` lines auto-unlock the login keyring at login:
+# the `auth` one captures the password once system-local-login has
+# verified it, the `session` one hands it to oo7-daemon over
+# $XDG_RUNTIME_DIR/oo7/pam.sock to unlock the keyring. Both are marked
+# `optional` so login/session opening never fails just because the
+# oo7 daemon isn't running or the module is missing.
+#
+# PAM config format:      man 5 pam.d
+# pam_oo7.so reference:   https://docs.rs/oo7-pam/latest/pam_oo7/
+# oo7 setup / PAM stanza: https://wiki.archlinux.org/title/Oo7
+
+#%PAM-1.0
+
+auth       required     pam_securetty.so
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
+auth       optional     pam_oo7.so
+account    include      system-local-login
+session    include      system-local-login
+session    optional     pam_oo7.so
