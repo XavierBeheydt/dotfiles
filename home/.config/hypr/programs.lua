@@ -4,9 +4,9 @@
 
 return {
     terminal     = "kitty",
-    -- TODO: file manager not decided yet -- "dolphin" was just a
+    -- TODO: pick a file manager later -- "dolphin" was just a
     -- placeholder, not planned for now
-    fileManager  = "dolphin",
+    -- fileManager  = "dolphin",
     -- TODO: launcher not decided yet -- "hyprlauncher" is just Hyprland's
     -- default placeholder, not an installed program. Candidates: Vicinae
     -- (ready-made, unblocks this now) vs a custom Quickshell launcher
