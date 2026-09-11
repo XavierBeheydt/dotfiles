@@ -1,0 +1,8 @@
+# Fish Shell
+home/.config/fish/fish_variables
+
+# Claude
+.claude/
+
+# User scratch notes / temporary files
+.tmp/
