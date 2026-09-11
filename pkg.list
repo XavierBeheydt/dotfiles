@@ -125,6 +125,7 @@ swtpm
 sysfsutils
 terminus-font
 tmux
+tmux-mem-cpu-load
 tree
 ttf-bitstream-vera
 ttf-liberation
