@@ -4,6 +4,8 @@
 
 return {
     terminal     = "kitty",
+    -- TODO: file manager not decided yet -- "dolphin" was just a
+    -- placeholder, not planned for now
     fileManager  = "dolphin",
     -- TODO: launcher not decided yet -- "hyprlauncher" is just Hyprland's
     -- default placeholder, not an installed program. Candidates: Vicinae
@@ -13,6 +15,7 @@ return {
     menu         = "hyprlauncher",
     browser      = "firefox",
     launchPrefix = "uwsm app -- ",
+    -- TODO: screenshot annotation goes through satty, not yet re-added (#8)
     screenshot   = "screenshot",
     theme        = "theme",
 }

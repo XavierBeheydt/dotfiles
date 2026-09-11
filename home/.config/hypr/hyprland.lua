@@ -127,7 +127,8 @@ require("hypr.bindings.mouse")
 require("hypr.bindings.media")
 require("hypr.bindings.screenshot")
 require("hypr.bindings.theme")
-require("hypr.bindings.shell")
+-- TODO: require("hypr.bindings.shell") -- wire this back up once the
+-- quickshell bar itself is decided/reintegrated (#7)
 
 
 --------------------------------
