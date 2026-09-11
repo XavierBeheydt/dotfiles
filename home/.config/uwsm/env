@@ -1,0 +1,9 @@
+# Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
+
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+export GBM_BACKEND=nvidia-drm
+export LIBVA_DRIVER_NAME=nvidia
+export MOZ_ENABLE_WAYLAND=1
+export PATH="$HOME/.local/bin:$PATH"
+export QT_QPA_PLATFORMTHEME=qt6ct
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
