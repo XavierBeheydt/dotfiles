@@ -54,9 +54,13 @@ greetd
 grim
 gsfonts
 gst-plugin-pipewire
+gvfs-afc
+gvfs-gphoto2
 hdparm
 hyprland
 hyprpolkitagent
+ifuse
+imagemagick
 inetutils
 inkscape
 jfsutils
@@ -135,6 +139,7 @@ ufw
 ufw-extras
 unrar
 unzip
+usbmuxd
 uv
 uwsm
 virt-manager
