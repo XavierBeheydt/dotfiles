@@ -9,4 +9,8 @@ update-pkglist:
     #!/usr/bin/env bash
     set -euo pipefail
     paru -Qqe | LC_ALL=C sort > pkg.list
-    git --no-pager diff --stat -- pkg.list
+    if git diff --quiet -- pkg.list; then
+        echo "pkg.list already up to date"
+    else
+        git --no-pager diff --stat -- pkg.list
+    fi
