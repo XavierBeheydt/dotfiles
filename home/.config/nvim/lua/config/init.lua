@@ -3,4 +3,4 @@
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
-require("config.deps")
+require("config.pack")
