@@ -14,3 +14,7 @@ if vim.g.RELATIVENUMBER == nil then
     vim.g.RELATIVENUMBER = false
 end
 vim.opt.relativenumber = vim.g.RELATIVENUMBER
+
+-- Add signs column
+vim.opt.signcolumn = true
+
