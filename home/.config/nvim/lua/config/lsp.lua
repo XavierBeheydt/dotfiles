@@ -3,7 +3,7 @@
 -- Enable LSP Servers
 vim.lsp.enable({
 	'lua_language_server',
-	-- 'rust_analyzer',
+	'rust_analyzer',
 })
 
 -- Show diagnostic messages inline (off by default on this Neovim version).
