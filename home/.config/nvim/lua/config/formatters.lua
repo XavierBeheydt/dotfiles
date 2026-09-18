@@ -1,4 +1,5 @@
 -- Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
+-- TODO: Add a feature to format only line selected.
 
 local M = {}
 
