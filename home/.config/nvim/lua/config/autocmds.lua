@@ -2,6 +2,7 @@
 
 -- Settings restoration at Vim entering
 vim.api.nvim_create_autocmd("VimEnter", {
+	group = "config",
 	callback = function()
 		vim.opt.relativenumber = vim.g.RELATIVENUMBER
 	end,

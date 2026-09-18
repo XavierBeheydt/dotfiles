@@ -12,6 +12,7 @@ vim.diagnostic.config({ virtual_text = true })
 local keymaps = require("config.keymaps")
 
 vim.api.nvim_create_autocmd("LspAttach", {
+    group = "config",
     callback = function(args)
         for _, map in ipairs(keymaps.lsp) do
             vim.keymap.set(map[1], map[2], map[3], { buffer = args.buf, desc = map[4] })
