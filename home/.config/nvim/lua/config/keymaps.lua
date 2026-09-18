@@ -19,6 +19,7 @@ M.global = {
 M.lsp = {
     { "n", "gd", vim.lsp.buf.definition, "Go to definition" },
     { "n", "gr", vim.lsp.buf.references, "List references" },
+    -- TODO: add <esc><esc> to close hover documentation
     { "n", "K", vim.lsp.buf.hover, "Hover documentation" },
     { "n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol" },
     { "n", "<leader>ca", vim.lsp.buf.code_action, "Code actions" },
