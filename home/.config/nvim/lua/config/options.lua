@@ -21,3 +21,12 @@ vim.opt.signcolumn = "yes"
 -- Search options
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- File defaults: LF line endings, UTF-8, 4 spaces (no tabs). A project's
+-- .editorconfig (native support, no plugin needed) overrides these per file.
+vim.opt.fileformat = "unix"
+vim.opt.fileencoding = "utf-8"
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
