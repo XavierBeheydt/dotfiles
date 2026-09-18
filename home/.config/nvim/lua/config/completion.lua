@@ -1,3 +1,3 @@
 -- Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
 
-require("config")
+vim.opt.completeopt = "menuone,noselect,popup"
