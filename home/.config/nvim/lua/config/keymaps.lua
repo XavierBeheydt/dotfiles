@@ -24,6 +24,7 @@ M.lsp = {
     { "n", "<leader>ca", vim.lsp.buf.code_action, "Code actions" },
     { "n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic" },
     { "n", "]d", vim.diagnostic.goto_next, "Next diagnostic" },
+    { "n", "<leader>e", vim.diagnostic.open_float, "Show diagnostic" },
 }
 
 -- Register global keymaps

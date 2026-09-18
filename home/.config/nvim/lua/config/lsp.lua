@@ -6,6 +6,9 @@ vim.lsp.enable({
 	-- 'rust_analyzer',
 })
 
+-- Show diagnostic messages inline (off by default on this Neovim version).
+vim.diagnostic.config({ virtual_text = true })
+
 local keymaps = require("config.keymaps")
 
 vim.api.nvim_create_autocmd("LspAttach", {
