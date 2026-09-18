@@ -11,6 +11,9 @@ M.global = {
         vim.g.RELATIVENUMBER = not vim.opt.relativenumber:get()
         vim.opt.relativenumber = vim.g.RELATIVENUMBER
     end, "Toggle relative line numbers" },
+    { "n", "<leader>cf", function()
+        require("formatters").format()
+    end, "Format buffer" },
 }
 
 M.lsp = {
