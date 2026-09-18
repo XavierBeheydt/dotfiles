@@ -11,7 +11,7 @@ vim.opt.number = true
 
 -- Change line number to relative number and check if already set.
 if vim.g.RELATIVENUMBER == nil then
-    vim.g.RELATIVENUMBER = false
+	vim.g.RELATIVENUMBER = false
 end
 vim.opt.relativenumber = vim.g.RELATIVENUMBER
 
