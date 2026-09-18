@@ -16,7 +16,7 @@ end
 vim.opt.relativenumber = vim.g.RELATIVENUMBER
 
 -- Add signs column
-vim.opt.signcolumn = true
+vim.opt.signcolumn = "yes"
 
 -- Search options
 vim.opt.ignorecase = true
