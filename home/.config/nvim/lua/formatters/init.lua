@@ -10,6 +10,18 @@ function M.set(filetype, formatter)
     M.formatters[filetype] = formatter
 end
 
+-- Auto-discover formatters/<filetype>.lua across the runtimepath, the same
+-- way Neovim's own lsp/<name>.lua convention works (see vim.lsp.config in
+-- $VIMRUNTIME/lua/vim/lsp.lua).
+for _, path in ipairs(vim.api.nvim_get_runtime_file("formatters/*.lua", true)) do
+    local filetype = vim.fn.fnamemodify(path, ":t:r")
+    local formatter = assert(loadfile(path))()
+    if type(formatter) ~= "table" then
+        error(path .. ": must return a table")
+    end
+    M.set(filetype, formatter)
+end
+
 local function format_external(cmd)
     local bufnr = vim.api.nvim_get_current_buf()
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
