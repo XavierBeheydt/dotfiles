@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 
 -- Auto Reload or Refresh buffers when files is modified externaly.
--- Throttled by vim.g.CHECKTIME_COOLDOWN so BufEnter/CursorHold bursts don't
+-- Throttled by vim.g.checktime_cooldown so BufEnter/CursorHold bursts don't
 -- stat every buffer each time; FocusGained always checks since it means we
 -- just came back from elsewhere.
 local checktime_last = 0
@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd(
 		group = vim.api.nvim_create_augroup("checktime", { clear = true }),
 		callback = function(ev)
 			local now = vim.uv.now()
-			local cooldown = vim.g.CHECKTIME_COOLDOWN or 0
+			local cooldown = vim.g.checktime_cooldown or 0
 			if ev.event ~= "FocusGained" and now - checktime_last < cooldown then
 				return
 			end
