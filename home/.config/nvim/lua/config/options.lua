@@ -32,8 +32,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
 -- Reload buffers changed outside Neovim (see the checktime autocmd).
--- updatetime is the idle delay before CursorHold fires; CHECKTIME_COOLDOWN is
+-- updatetime is the idle delay before CursorHold fires; checktime_cooldown is
 -- the minimum delay in ms between two checks (FocusGained ignores it).
+-- NOTE: keep checktime_cooldown lowercase; all-uppercase globals are saved
+-- in ShaDa ('shada' flag "!") and restored after init, overriding this value.
 vim.opt.autoread = true
 vim.opt.updatetime = 250
-vim.g.CHECKTIME_COOLDOWN = 2000
+vim.g.checktime_cooldown = 2000
