@@ -30,3 +30,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+
+-- Reload buffers changed outside Neovim (see the checktime autocmd).
+-- updatetime is the idle delay before CursorHold fires; CHECKTIME_COOLDOWN is
+-- the minimum delay in ms between two checks (FocusGained ignores it).
+vim.opt.autoread = true
+vim.opt.updatetime = 250
+vim.g.CHECKTIME_COOLDOWN = 2000
