@@ -6,10 +6,15 @@
 
 local M = {}
 
+---@class languages.markdown.Options
+---@field interpreters table<string, string|string[]|false>
+---@field size number
+
 -- Candidates tried in order: the first one found in PATH is used.
 local python = { "python3", "python" }
 local node = { "node", "nodejs" } -- Debian and friends call it nodejs
 
+---@type languages.markdown.Options
 M.defaults = {
 	-- Info-string language -> interpreter: a command, or a list of candidates.
 	-- The block is written to a temp file that is passed as the interpreter's
@@ -34,8 +39,10 @@ M.defaults = {
 	size = 0.35,
 }
 
+---@type languages.markdown.Options
 M.options = vim.deepcopy(M.defaults)
 
+---@param opts? table overrides, deep-merged over `defaults`
 function M.setup(opts)
 	M.options = vim.tbl_deep_extend("force", M.defaults, opts or {})
 end

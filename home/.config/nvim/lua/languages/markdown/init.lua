@@ -21,7 +21,9 @@ local function resolve(lang)
 	if not candidates then
 		return nil, ("no interpreter for '%s'"):format(lang)
 	end
-	candidates = type(candidates) == "table" and candidates or { candidates }
+	if type(candidates) == "string" then
+		candidates = { candidates }
+	end
 	for _, cmd in ipairs(candidates) do
 		if vim.fn.executable(cmd) == 1 then
 			return cmd

@@ -5,18 +5,22 @@
 
 local M = {}
 
--- Fence opener: indent, fence run (3+ backticks or tildes), info string.
+-- Fence opener as { indent (width), fence (run of 3+ backticks or tildes),
+-- info (the info string) }, or nil if `line` doesn't open a fence.
 local function parse_open(line)
 	local indent, fence, info = line:match("^(%s*)(```+)(.*)$")
 	if not fence then
 		indent, fence, info = line:match("^(%s*)(~~~+)(.*)$")
 	end
-	-- A backtick fence can't have backticks in its info string: that's
-	-- inline code (```like this```) on a single line, not a fence.
-	if fence and fence:sub(1, 1) == "`" and info:find("`", 1, true) then
+	if not fence then
 		return nil
 	end
-	return indent, fence, info
+	-- A backtick fence can't have backticks in its info string: that's
+	-- inline code (```like this```) on a single line, not a fence.
+	if fence:sub(1, 1) == "`" and info:find("`", 1, true) then
+		return nil
+	end
+	return { indent = #indent, fence = fence, info = info }
 end
 
 local function is_close(line, fence)
@@ -35,15 +39,15 @@ function M.parse(lines)
 	local blocks, current = {}, nil
 	for i, line in ipairs(lines) do
 		if not current then
-			local indent, fence, info = parse_open(line)
-			if fence then
-				local lang = info:match("^%s*{?%.?([%w_+#-]+)")
+			local opener = parse_open(line)
+			if opener then
+				local lang = opener.info:match("^%s*{?%.?([%w_+#-]+)")
 				current = {
 					lang = lang and lang:lower(),
 					open = i,
 					first = i + 1,
-					indent = #indent,
-					fence = fence,
+					indent = opener.indent,
+					fence = opener.fence,
 				}
 			end
 		elseif is_close(line, current.fence) then

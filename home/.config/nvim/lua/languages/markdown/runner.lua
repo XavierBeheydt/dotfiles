@@ -74,9 +74,9 @@ local function run_in_split(argv, cwd, vertical)
 	local buf = vim.api.nvim_create_buf(false, true)
 
 	-- The runner window, unless something else was opened in it since.
-	local win = M.win
-	if not (win and vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_buf(win) == M.buf) then
-		win = nil
+	local win
+	if M.win and vim.api.nvim_win_is_valid(M.win) and vim.api.nvim_win_get_buf(M.win) == M.buf then
+		win = M.win
 	end
 
 	if win and M.vertical == vertical then
