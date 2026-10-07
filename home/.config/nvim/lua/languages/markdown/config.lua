@@ -1,8 +1,8 @@
 -- Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
 
--- Defaults and user overrides, the way LazyVim's config module does it:
--- setup(opts) deep-merges opts over defaults. Read `options` at call time
--- (never cache it), since setup() replaces the table.
+-- Defaults and user overrides: setup(opts) deep-merges opts over defaults.
+-- Read `options` at call time (never cache it), since setup() replaces the
+-- table.
 
 local M = {}
 
