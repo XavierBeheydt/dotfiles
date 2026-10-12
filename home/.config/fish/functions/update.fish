@@ -1,6 +1,6 @@
 # Copyright (c) 2026 Xavier Beheydt <xavier.beheydt@gmail.com>
 
-function updates --description 'List pending updates (Arch, AUR, Flatpak) without installing anything'
+function update --description 'List pending updates (Arch, AUR, Flatpak) without installing anything'
     set -l total 0
 
     # Official repositories: checkupdates works on a temporary copy of the
@@ -8,7 +8,7 @@ function updates --description 'List pending updates (Arch, AUR, Flatpak) withou
     if command -q checkupdates
         set -l arch (checkupdates 2>/dev/null)
         set total (math $total + (count $arch))
-        _updates_section "Arch (official repos)" $arch
+        _update_section "Arch (official repos)" $arch
     else
         echo "Arch: checkupdates not found (install pacman-contrib)" >&2
     end
@@ -16,13 +16,13 @@ function updates --description 'List pending updates (Arch, AUR, Flatpak) withou
     if command -q paru
         set -l aur (paru -Qua 2>/dev/null)
         set total (math $total + (count $aur))
-        _updates_section "AUR" $aur
+        _update_section "AUR" $aur
     end
 
     if command -q flatpak
         set -l flat (flatpak remote-ls --updates --columns=application,version,origin 2>/dev/null)
         set total (math $total + (count $flat))
-        _updates_section "Flatpak" $flat
+        _update_section "Flatpak" $flat
     end
 
     echo
@@ -39,7 +39,7 @@ function updates --description 'List pending updates (Arch, AUR, Flatpak) withou
 end
 
 # Print a titled block with a count, or a short "up to date" line when empty.
-function _updates_section --argument-names title
+function _update_section --argument-names title
     set -e argv[1]
     set_color --bold cyan
     echo "== $title: "(count $argv)
