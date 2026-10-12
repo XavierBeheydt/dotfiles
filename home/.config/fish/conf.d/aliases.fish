@@ -21,7 +21,6 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 ## Pacman / paru maintenance
-alias update='paru -Syu'                        # full system + AUR update
 alias orphans='pacman -Qtdq'                     # list orphaned packages (no removal)
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
 alias pacnew='sudo -E pacdiff'                   # review/merge .pacnew files
