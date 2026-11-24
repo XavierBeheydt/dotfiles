@@ -20,7 +20,8 @@ one big drop.
   of installed packages
 - `permissions.conf` — owner/group/mode restored on deploy, see
   `dotfiles add <path>`
-- `docs/` — reference material for working on this repo
+- `docs/` — reference material for working on this repo; see
+  [docs/packages.md](docs/packages.md) for the native-vs-Flatpak package rule
 
 ## Setup
 

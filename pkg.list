@@ -74,6 +74,7 @@ kitty
 lazydocker
 lazygit
 lib32-nvidia-utils
+lib32-obs-vkcapture
 lib32-opencl-nvidia
 lib32-vulkan-icd-loader
 libva-nvidia-driver
@@ -105,6 +106,7 @@ nvidia-settings
 nvidia-utils
 nvtop
 obs-studio
+obs-vkcapture
 obsidian
 opencl-nvidia
 openssh
